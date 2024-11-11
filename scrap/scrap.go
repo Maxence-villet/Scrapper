@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/gocolly/colly"
 )
@@ -28,19 +29,29 @@ func Srap() error {
 	c.OnHTML(".group", func(e *colly.HTMLElement) {
 		e.ForEach(".group.relative a[href]", func(_ int, link *colly.HTMLElement) {
 			href := link.Attr("href")
-
 			if href[0:7] == "/udemy/" {
-				data := []byte(href + "\n")
-				f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
-				if err != nil {
-					fmt.Println("Erreur lors de l'ouverture du fichier :", err)
-					return
-				}
-				defer f.Close()
+				var list_search = [4]string{"project", "build", "apps", "scrum"}
+				var blacklist_search = [1]string{"project-management"}
+				for _, element := range list_search {
+					for _, element_blocked := range blacklist_search {
+						if strings.Contains(strings.ToUpper(href), strings.ToUpper(element_blocked)) {
 
-				if _, err := f.Write(data); err != nil {
-					fmt.Println("Erreur lors de l'écriture :", err)
-					return
+						} else if strings.Contains(href, element) {
+							data := []byte("comidoc.net" + href + "\n")
+							f, err := os.OpenFile("data.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0644)
+							if err != nil {
+								fmt.Println("Erreur lors de l'ouverture du fichier :", err)
+								return
+							}
+							defer f.Close()
+
+							if _, err := f.Write(data); err != nil {
+								fmt.Println("Erreur lors de l'écriture :", err)
+								return
+							}
+						} else {
+						}
+					}
 				}
 			} else {
 				// instructeur

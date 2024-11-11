@@ -9,21 +9,19 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	"scrap.com/m/scrap"
-	"scrap.com/m/search"
 )
 
 func main() {
-	scrap.Srap()
-	search.Search("data.txt")
-
-	sess, err := discordgo.New("")
+	create_cache("data.txt")
+	sess, err := discordgo.New("Bot MTMwNDU5Mzg3ODQ1MTYyMTkxOA.G3Zl5P.oH3BQ-ZpoqMLj_y5RthniuRh0NwY7ulkndIVWo")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// Fonction pour envoyer le contenu du fichier dans un canal
 	sendMessage := func(s *discordgo.Session, channelID string) {
-		file, err := os.Open("result.txt")
+
+		file, err := os.Open("data.txt")
 		if err != nil {
 			fmt.Println("Erreur lors de l'ouverture du fichier:", err)
 			return
@@ -41,11 +39,13 @@ func main() {
 
 	}
 
-	// Boucle infinie pour envoyer le message toutes les 30 secondes
+	// Boucle infinie pour envoyer le message toutes les 900 secondes
 	go func() {
 		for {
+
 			sendMessage(sess, "votre_channel_id")
 			time.Sleep(900 * time.Second)
+			remove_cache("data.txt")
 
 		}
 	}()
@@ -68,4 +68,13 @@ func remove_cache(filename string) {
 	if e != nil {
 		log.Fatal(e)
 	}
+	create_cache(filename)
+}
+func create_cache(filename string) {
+	f, err := os.Create("data.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	f.Close()
+	scrap.Srap()
 }
