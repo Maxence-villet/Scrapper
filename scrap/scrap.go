@@ -9,6 +9,13 @@ import (
 	"github.com/gocolly/colly"
 )
 
+type ScrapHandler interface {
+	Scrap() error
+}
+
+type Scrap struct {
+}
+
 /*
 Cette fonction scrappe les url de comidoc et les insères dans un fichier txt
 
@@ -22,8 +29,7 @@ Retournes:
 
 	Rien
 */
-func Srap() error {
-	remove_cache("data.txt")
+func (b *Scrap) Scrap() error {
 	c := colly.NewCollector()
 
 	c.OnHTML(".group", func(e *colly.HTMLElement) {
@@ -72,22 +78,7 @@ func Srap() error {
 
 }
 
-/*
-Cette fonction supprime le fichier 'example.txt'
-
-Paramètres:
------------
-
-	filename (string) : le nom du fichier (par exemple: data.txt)
-
-Retournes:
-----------
-
-	Rien
-*/
-func remove_cache(filename string) {
-	e := os.Remove(filename)
-	if e != nil {
-		log.Fatal(e)
-	}
+func NewScrap() *Scrap {
+	s := &Scrap{}
+	return s
 }
