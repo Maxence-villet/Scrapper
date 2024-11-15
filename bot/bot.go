@@ -85,7 +85,7 @@ func (b *Bot) SendMessage() {
 func NewBot() *Bot {
 	b := &Bot{
 		token:      "Bot MTMwNDU5Mzg3ODQ1MTYyMTkxOA.G3Zl5P.oH3BQ-ZpoqMLj_y5RthniuRh0NwY7ulkndIVWo",
-		timeReload: 1,
+		timeReload: 3,
 		channel_id: "1304593207732080685",
 	}
 
