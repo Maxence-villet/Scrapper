@@ -16,19 +16,6 @@ type ScrapHandler interface {
 type Scrap struct {
 }
 
-/*
-Cette fonction scrappe les url de comidoc et les insères dans un fichier txt
-
-Paramètres:
------------
-
-	Rien
-
-Retournes:
-----------
-
-	Rien
-*/
 func (b *Scrap) Scrap() error {
 	c := colly.NewCollector()
 
