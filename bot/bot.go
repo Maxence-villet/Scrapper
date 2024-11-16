@@ -58,7 +58,7 @@ func (b *Bot) SendMessage() {
 		for {
 
 			sendMessage(sess, "votre_channel_id")
-			time.Sleep(time.Duration(b.timeReload) * time.Minute)
+			time.Sleep(config.NewConfig().GetTimeReload())
 
 			dataHandler := data.NewData()
 			dataHandler.RemoveCache()
