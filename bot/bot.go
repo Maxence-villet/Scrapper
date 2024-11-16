@@ -8,6 +8,8 @@ import (
 	"time"
 
 	"github.com/bwmarrin/discordgo"
+	"scrap.com/config"
+	"scrap.com/crypto"
 	"scrap.com/data"
 	"scrap.com/scrap"
 )
@@ -83,10 +85,18 @@ func (b *Bot) SendMessage() {
 }
 
 func NewBot() *Bot {
+
+	tokenTmp, err := crypto.Encrypt(config.NewConfig().GetKey(), config.NewConfig().GetToken())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tokenDecryptTmp, err := crypto.Decrypt(config.NewConfig().GetKey(), tokenTmp)
+
 	b := &Bot{
-		token:      "Bot MTMwNDU5Mzg3ODQ1MTYyMTkxOA.G3Zl5P.oH3BQ-ZpoqMLj_y5RthniuRh0NwY7ulkndIVWo",
+		token:      string(tokenDecryptTmp),
 		timeReload: 3,
-		channel_id: "1304593207732080685",
+		channel_id: config.NewConfig().GetChannelId(),
 	}
 
 	return b
