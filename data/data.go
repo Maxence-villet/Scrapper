@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"scrap.com/config"
+	"scrap/config"
 )
 
 // Interface définissant les opérations sur les données
