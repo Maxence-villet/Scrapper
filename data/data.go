@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-
-	"scrap/config"
 )
 
 // Interface définissant les opérations sur les données
@@ -80,7 +78,7 @@ func (d *Data) RemoveDuplicates() error {
 	// Créer un scanner pour lire le fichier ligne par ligne
 	scanner := bufio.NewScanner(file)
 
-	_, err = fmt.Fprintln(file_sort, config.NewConfig().GetImage())
+	_, err = fmt.Fprintln(file_sort, "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png")
 	if err != nil {
 		return err
 	}

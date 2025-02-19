@@ -5,13 +5,12 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/bwmarrin/discordgo"
-	"scrap.com/config"
-	"scrap.com/crypto"
 	"scrap.com/data"
 	"scrap.com/scrap"
+
+	"github.com/joho/godotenv"
 )
 
 type BotHandler interface {
@@ -53,23 +52,15 @@ func (b *Bot) SendMessage() {
 
 	}
 
-	// Boucle infinie pour envoyer le message toutes les 900 secondes
-	go func() {
-		for {
+	sendMessage(sess, "votre_channel_id")
 
-			sendMessage(sess, "votre_channel_id")
-			time.Sleep(config.NewConfig().GetTimeReload())
+	dataHandler := data.NewData()
+	dataHandler.RemoveCache()
 
-			dataHandler := data.NewData()
-			dataHandler.RemoveCache()
+	scrapHandler := scrap.NewScrap()
+	scrapHandler.Scrap()
 
-			scrapHandler := scrap.NewScrap()
-			scrapHandler.Scrap()
-
-			dataHandler.RemoveDuplicates()
-
-		}
-	}()
+	dataHandler.RemoveDuplicates()
 
 	fmt.Println("the bot is online")
 
@@ -80,23 +71,32 @@ func (b *Bot) SendMessage() {
 	}
 	defer sess.Close()
 
-	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
-	<-make(chan struct{})
 }
 
 func NewBot() *Bot {
 
-	tokenTmp, err := crypto.Encrypt(config.NewConfig().GetKey(), config.NewConfig().GetToken())
+	// Charger me fichier .env
+	err := godotenv.Load(".env")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("Error loading .env file")
 	}
 
-	tokenDecryptTmp, err := crypto.Decrypt(config.NewConfig().GetKey(), tokenTmp)
+	// Récupérer le token et le channel_id
+	apiKey := os.Getenv("API_KEY")
+	channelId := os.Getenv("CHANNEL_ID")
+
+	if apiKey == "" {
+		log.Fatal("API_KEY is not set")
+	}
+
+	if channelId == "" {
+		log.Fatal("CHANNEL_ID is not set")
+	}
 
 	b := &Bot{
-		token:      string(tokenDecryptTmp),
+		token:      apiKey,
 		timeReload: 3,
-		channel_id: config.NewConfig().GetChannelId(),
+		channel_id: channelId,
 	}
 
 	return b
