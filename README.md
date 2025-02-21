@@ -55,7 +55,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à
 
 ## Licence
 
-Ce projet est sous licence MIT.
+Ce projet est sous licence GPL-3.0 license.
 
 ## Auteur
 
