@@ -16,7 +16,13 @@ func FilterArguments(args []string) ([]string, []string) {
 	for i, arg := range args {
 		if args[i] != args[0] {
 			if arg == "-h" || arg == "--help" {
-				fmt.Println("Usage: scrap ")
+				fmt.Println("--------------------------------")
+				fmt.Println("\n		Détail des commandes : \n")
+				fmt.Println("	-k ou --key 		\"[OPTION1,OPTION2,...]\"")
+				fmt.Println("	-b ou --blacklist 	\"[OPTION1,OPTION2,...]\"")
+				fmt.Println()
+				fmt.Println("--------------------------------")
+				break
 			}
 			if i < len(args)-1 {
 				if arg == "-k" || arg == "--key" {
