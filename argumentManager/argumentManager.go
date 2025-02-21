@@ -10,27 +10,38 @@ func GetArguments() []string {
 	return os.Args
 }
 
-func FilterArguments(args []string) []string {
+func FilterArguments(args []string) ([]string, []string) {
 	var keyWord []string
+	var blacklist []string
 	for i, arg := range args {
 		if args[i] != args[0] {
 			if arg == "-h" || arg == "--help" {
 				fmt.Println("Usage: scrap ")
 			}
-			if arg == "-k" || arg == "--key" {
-				if args[i+1] != "" && strings.Contains(args[i+1], "[") && strings.Contains(args[i+1], "]") {
-					clean := strings.Replace(args[i+1], "[", "", -1)
-					clean = strings.Replace(clean, "]", "", -1)
-					var keyWordTmp []string = strings.Split(clean, ",")
-					for _, k := range keyWordTmp {
-						keyWord = append(keyWord, k)
+			if i < len(args)-1 {
+				if arg == "-k" || arg == "--key" {
+					if args[i+1] != "" && strings.Contains(args[i+1], "[") && strings.Contains(args[i+1], "]") {
+						clean := strings.Replace(args[i+1], "[", "", -1)
+						clean = strings.Replace(clean, "]", "", -1)
+						var keyWordTmp []string = strings.Split(clean, ",")
+						for _, k := range keyWordTmp {
+							keyWord = append(keyWord, k)
+						}
+					}
+				}
+				if arg == "-b" || arg == "--blacklist" {
+					if args[i+1] != "" && strings.Contains(args[i+1], "[") && strings.Contains(args[i+1], "]") {
+						clean := strings.Replace(args[i+1], "[", "", -1)
+						clean = strings.Replace(clean, "]", "", -1)
+						var blacklistTmp []string = strings.Split(clean, ",")
+						for _, b := range blacklistTmp {
+							blacklist = append(blacklist, b)
+						}
 					}
 				}
 			}
 		}
 	}
-	if keyWord == nil {
-		keyWord = args
-	}
-	return keyWord
+
+	return keyWord, blacklist
 }

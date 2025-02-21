@@ -58,11 +58,11 @@ func (b *Bot) SendMessage() {
 	dataHandler := data.NewData()
 	dataHandler.RemoveCache()
 
-	args := argumentmanager.GetArguments()
-	args = argumentmanager.FilterArguments(args)
+	argsNotFiltered := argumentmanager.GetArguments()
+	args, blacklist := argumentmanager.FilterArguments(argsNotFiltered)
 
 	scrapHandler := scrap.NewScrap()
-	scrapHandler.Scrap(args)
+	scrapHandler.Scrap(args, blacklist)
 
 	dataHandler.RemoveDuplicates()
 

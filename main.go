@@ -9,15 +9,15 @@ import (
 
 func main() {
 
-	args := argumentmanager.GetArguments()
-	args = argumentmanager.FilterArguments(args)
+	argsNotFiltered := argumentmanager.GetArguments()
+	args, blacklist := argumentmanager.FilterArguments(argsNotFiltered)
 
 	dataHandler := data.NewData()
 	dataHandler.RemoveCache()
 	dataHandler.CreateCache()
 
 	scrapHandler := scrap.NewScrap()
-	scrapHandler.Scrap(args)
+	scrapHandler.Scrap(args, blacklist)
 
 	dataHandler.RemoveDuplicates()
 
