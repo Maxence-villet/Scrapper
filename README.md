@@ -47,9 +47,9 @@ Ce projet Go permet de récupérer automatiquement toutes les formations Udemy d
 
 ### Options disponibles
 
-- **`-k` ou `--key`** : Spécifie une liste de clés à utiliser.  
+- **`-k` ou `--key`** : Spécifie une liste d'éléments qui iront dans la whitelist.  
   Exemple : `-k "[project,app,build]"`  
-  Cette option attend une chaîne de caractères représentant une liste de clés.
+  Cette option attend une chaîne de caractères représentant une liste de mot-clés.
 
 - **`-b` ou `--blacklist`** : Spécifie une liste d'éléments à exclure.  
   Exemple : `-b "[salesforce,php]"`  
