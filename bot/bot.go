@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/bwmarrin/discordgo"
+	argumentmanager "scrap.com/argumentManager"
 	"scrap.com/data"
 	"scrap.com/scrap"
 
@@ -57,8 +58,11 @@ func (b *Bot) SendMessage() {
 	dataHandler := data.NewData()
 	dataHandler.RemoveCache()
 
+	args := argumentmanager.GetArguments()
+	args = argumentmanager.FilterArguments(args)
+
 	scrapHandler := scrap.NewScrap()
-	scrapHandler.Scrap()
+	scrapHandler.Scrap(args)
 
 	dataHandler.RemoveDuplicates()
 

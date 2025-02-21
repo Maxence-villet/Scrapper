@@ -16,16 +16,15 @@ type ScrapHandler interface {
 type Scrap struct {
 }
 
-func (b *Scrap) Scrap() error {
+func (b *Scrap) Scrap(keyWord []string) error {
 	c := colly.NewCollector()
 
 	c.OnHTML(".group", func(e *colly.HTMLElement) {
 		e.ForEach(".group.relative a[href]", func(_ int, link *colly.HTMLElement) {
 			href := link.Attr("href")
 			if href[0:7] == "/udemy/" {
-				var list_search = [4]string{"project", "build", "apps", "scrum"}
 				var blacklist_search = [1]string{"project-management"}
-				for _, element := range list_search {
+				for _, element := range keyWord {
 					for _, element_blocked := range blacklist_search {
 						if strings.Contains(strings.ToUpper(href), strings.ToUpper(element_blocked)) {
 
