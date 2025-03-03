@@ -45,6 +45,26 @@ Ce projet Go permet de récupérer automatiquement toutes les formations Udemy d
     go run main.go
     ```
 
+### Options disponibles
+
+- **`-k` ou `--key`** : Spécifie une liste d'éléments qui iront dans la whitelist.  
+  Exemple : `-k "[project,app,build]"`  
+  Cette option attend une chaîne de caractères représentant une liste de mot-clés.
+
+- **`-b` ou `--blacklist`** : Spécifie une liste d'éléments à exclure.  
+  Exemple : `-b "[salesforce,php]"`  
+  Cette option attend une chaîne de caractères représentant une liste d'éléments à exclure.
+
+- **`-h` ou `--help`** : Affiche l'aide et la liste des options disponibles.  
+  Exemple : `-h` ou `--help`
+
+### Exemples d'utilisation
+
+1. **Utilisation basique avec les options `-k` et `-b`** :
+
+   ```bash
+   go run main.go -k "[project,app,build]" -b "[salesforce,php]"
+
 ## Utilisation
 
 Le script va automatiquement récupérer les formations Udemy gratuites et les envoyer sur le canal Discord configuré. Il est recommandé de lancer le script régulièrement (par exemple, via un cron job) pour ne manquer aucune nouvelle formation.
