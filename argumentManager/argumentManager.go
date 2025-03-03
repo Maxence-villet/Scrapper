@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	readcsvfile "scrap.com/readCsvFile"
 )
 
 func GetArguments() []string {
@@ -45,9 +47,58 @@ func FilterArguments(args []string) ([]string, []string) {
 						}
 					}
 				}
+
+				if arg == "-o" || arg == "--output" {
+					if args[i+1] != "" {
+						csv := readcsvfile.NewReadCsvFile(args[i+1])
+						csv.SplitCsvData()
+
+						str := ConvertArrayToString(csv.GetBlackList())
+						clean := strings.Replace(str, " ", "", -1)
+						var blacklistTmp []string = strings.Split(clean, ",")
+
+						for i, b := range blacklistTmp {
+							blacklistTmp[i] = strings.Replace(b, " ", "", -1)
+						}
+
+						for _, b := range blacklistTmp {
+							blacklist = append(blacklist, b)
+						}
+
+						str = ConvertArrayToString(csv.GetWhiteList())
+						clean = strings.Replace(str, " ", "", -1)
+						var whitelistTmp []string = strings.Split(str, ",")
+
+						for i, w := range whitelistTmp {
+							whitelistTmp[i] = strings.Replace(w, " ", "", -1)
+						}
+
+						for _, k := range whitelistTmp {
+							keyWord = append(keyWord, k)
+						}
+
+					} else {
+						fmt.Println("Erreur : argument manquant ou invalide après -o/--output")
+					}
+				}
 			}
 		}
 	}
 
+	keyWord = trimSpaces(keyWord)
+	blacklist = trimSpaces(blacklist)
+
 	return keyWord, blacklist
+}
+
+func ConvertArrayToString(slice []string) string {
+	return strings.Join(slice, ",")
+}
+
+// remove Space between elements
+func trimSpaces(slice []string) []string {
+	for i, v := range slice {
+		slice[i] = strings.TrimSpace(v)
+	}
+	return slice
 }

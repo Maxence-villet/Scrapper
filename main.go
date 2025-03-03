@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	argumentmanager "scrap.com/argumentManager"
 	"scrap.com/bot"
 	"scrap.com/data"
@@ -11,6 +13,8 @@ func main() {
 
 	argsNotFiltered := argumentmanager.GetArguments()
 	args, blacklist := argumentmanager.FilterArguments(argsNotFiltered)
+
+	fmt.Println(args, blacklist)
 
 	dataHandler := data.NewData()
 	dataHandler.RemoveCache()
