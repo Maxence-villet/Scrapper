@@ -55,8 +55,42 @@ Ce projet Go permet de récupérer automatiquement toutes les formations Udemy d
   Exemple : `-b "[salesforce,php]"`  
   Cette option attend une chaîne de caractères représentant une liste d'éléments à exclure.
 
+- **`-i` ou `--input`** : Récupérer les éléments d'un fichier CSV.
+  Exemple : `-i example.csv`
+  Cette option attend une chaîne de caractères resprésentant le nom du fichier.
+
 - **`-h` ou `--help`** : Affiche l'aide et la liste des options disponibles.  
   Exemple : `-h` ou `--help`
+
+## Lecture de fichier CSV pour la blacklist et la whitelist
+
+En plus des options de ligne de commande, vous pouvez également utiliser un fichier CSV pour définir la blacklist et la whitelist. Cela peut être utile si vous avez une liste importante d'éléments à inclure ou à exclure.
+
+### Utilisation
+
+Pour utiliser un fichier CSV, vous pouvez spécifier le fichier de sortie avec l'option `-i` ou `--input`. Le fichier CSV doit être structuré de la manière suivante :
+
+```csv
+build,horse
+app,java
+linux, 
+```
+**⚠️ Les mots  toujours en minuscules dans le fichier CSV ⚠️**
+
+Par exemple :
+```bash
+go run main.go -i example.csv
+  or
+go run main.go --input example.csv
+   ```
+
+On obtiendra :
+```
+Whitelist = [build,app,linux]
+Blacklist = [horse,java]
+```
+
+
 
 ### Exemples d'utilisation
 
@@ -64,6 +98,7 @@ Ce projet Go permet de récupérer automatiquement toutes les formations Udemy d
 
    ```bash
    go run main.go -k "[project,app,build]" -b "[salesforce,php]"
+   ```
 
 ## Utilisation
 
@@ -79,4 +114,4 @@ Ce projet est sous licence GPL-3.0 license.
 
 ## Auteur
 
-* Maxence Villet
+* Maxence-villet

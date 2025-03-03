@@ -22,6 +22,7 @@ func FilterArguments(args []string) ([]string, []string) {
 				fmt.Println("\n		Détail des commandes : \n")
 				fmt.Println("	-k ou --key 		\"[OPTION1,OPTION2,...]\"")
 				fmt.Println("	-b ou --blacklist 	\"[OPTION1,OPTION2,...]\"")
+				fmt.Println("	-i ou --input 	example.csv")
 				fmt.Println()
 				fmt.Println("--------------------------------")
 				break
@@ -48,7 +49,7 @@ func FilterArguments(args []string) ([]string, []string) {
 					}
 				}
 
-				if arg == "-o" || arg == "--output" {
+				if arg == "-i" || arg == "--input" {
 					if args[i+1] != "" {
 						csv := readcsvfile.NewReadCsvFile(args[i+1])
 						csv.SplitCsvData()
@@ -78,7 +79,7 @@ func FilterArguments(args []string) ([]string, []string) {
 						}
 
 					} else {
-						fmt.Println("Erreur : argument manquant ou invalide après -o/--output")
+						fmt.Println("Erreur : argument manquant ou invalide après -i/--input")
 					}
 				}
 			}
