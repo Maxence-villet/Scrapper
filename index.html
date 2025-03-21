@@ -12,7 +12,10 @@
     <!-- Navbar -->
     <nav class="bg-[#151515] fixed w-full z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold">Scrapper</a>
+                <a href="#" class="text-2xl font-bold flex gap-3">
+                    <img src="Images/Logo.png" alt="Project" class="w-10">
+                    Scrapper
+                </a>    
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 items-center">
@@ -56,8 +59,8 @@
         <div class="z-10 text-center">
             <h1 class="text-6xl md:text-8xl font-bold mb-6">SCRAPPER</h1>
             <p class="text-xl mb-8">Obtenez des cours Udemy premium... gratuitement !</p>
-            <a href="https://www.linkedin.com/in/maxence-villet-schoumaker-developpeur-web-mobile/" class="bg-[#3347e8] px-8 py-3 rounded-full hover:bg-blue-600 transition">
-                Nous contacter
+            <a href="https://github.com/Maxence-villet/Scrapper" class="bg-[#3347e8] px-8 py-3 rounded-full hover:bg-blue-600 transition">
+                Aller au projet
             </a>
         </div>
     </header>
@@ -67,7 +70,7 @@
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <img src="Images/Logo.png" alt="Project" class="md:w-1/2 mb-8 md:mb-0 rounded-lg">
             <div class="md:w-1/2 md:pl-16">
-                <h2 class="text-4xl font-bold mb-6">Le Projet</h2>
+                <h2 class="text-4xl font-bold mb-6">Scrapper?</h2>
                 <p class="opacity-80 leading-relaxed">
                     Scrapper est un outil révolutionnaire qui scanne quotidiennement le web à la recherche de coupons Udemy valides. Grâce à notre algorithme open-source, nous filtrons et vérifions chaque lien avant de le partager avec notre communauté. Plus besoin de perdre des heures à chercher - nous faisons le travail pour vous !
                 </p>
@@ -113,8 +116,36 @@
         </div>
     </section>
 
-    <!-- Qui-suis-je -->
+    <!-- Section Exemple -->
     <section class="py-20 bg-[#000000]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">Exemples</h2>
+            
+            <!-- Conteneur des exemples -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <!-- Exemple 1 : Capture d'écran Discord -->
+                <div class="bg-[#151515] p-8 rounded-lg shadow-lg w-full md:w-1/3 text-center h-auto md:h-[500px] flex flex-col justify-between">
+                    <h3 class="text-xl font-bold mb-4">Messages sur Discord</h3>
+                    <p class="opacity-80 mb-6">
+                        Voici un exemple des messages envoyés sur Discord avec les liens des coupons Udemy.
+                    </p>
+                    <img src="Images/Example_1.png" alt="Capture d'écran Discord" class="w-full rounded-lg h-auto">
+                </div>
+
+                <!-- Exemple 2 : Capture d'écran Udemy -->
+                <div class="bg-[#151515] p-8 rounded-lg shadow-lg w-full md:w-1/2 text-center h-auto md:h-[500px] flex flex-col justify-between">
+                    <h3 class="text-xl font-bold mb-4">Coupon appliqué sur Udemy</h3>
+                    <p class="opacity-80 mb-6">
+                        Voici un exemple de réduction à -100% appliquée sur un cours Udemy grâce à un coupon trouvé par Scrapper.
+                    </p>
+                    <img src="Images/Example_2.png" alt="Capture d'écran Udemy" class="w-full rounded-lg h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui-suis-je -->
+    <section class="py-20 bg-[#151515]">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <img src="Images/Maxence.png" alt="Profile" class="w-64 h-64 rounded-full mb-8 md:mb-0">
             <div class="md:w-1/2 md:pl-16">
@@ -122,6 +153,55 @@
                 <p class="opacity-80 leading-relaxed">
                     Je m'appelle Maxence VILLET SCHOUMAKER, étudiant en informatique passionné par le web scraping et l'automatisation. Développeur full-stack depuis 3 ans, j'aime créer des outils utiles pour la communauté. Mon objectif est de rendre l'éducation accessible à tous grâce à la technologie.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback (Avis clients) -->
+    <section class="py-20 bg-[#000000]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">Avis Clients</h2>
+            
+            <!-- Conteneur des avis -->
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                <!-- Avis 1 : Damien PINO -->
+                <div class="bg-[#151515] p-8 rounded-lg shadow-lg w-full md:w-1/3 text-center h-auto md:h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <img src="https://static.wikia.nocookie.net/naruto/images/5/56/Sharingan_Triple.svg" alt="Damien PINO" class="w-16 h-16 rounded-full">
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Damien PINO</h3>
+                        <p class="opacity-80 italic overflow-y-auto md:max-h-48">
+                            "Scrapper est un outil incroyable ! J'ai déjà économisé des centaines d'euros sur des cours Udemy. La simplicité d'utilisation est un vrai plus."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Avis 2 : Emmanuel CONTAOI -->
+                <div class="bg-[#151515] p-8 rounded-lg shadow-lg w-full md:w-1/3 text-center h-auto md:h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <img src="Images/Feedback_2.jpg" alt="Emmanuel CONTAOI" class="w-16 h-16 rounded-full">
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Emmanuel CONTAOI</h3>
+                        <p class="opacity-80 italic overflow-y-auto md:max-h-48">
+                            "Je recommande vivement Scrapper à tous ceux qui veulent se former sans se ruiner. Les coupons sont toujours valides et pertinents."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Avis 3 : NOAM Pangou -->
+                <div class="bg-[#151515] p-8 rounded-lg shadow-lg w-full md:w-1/3 text-center h-auto md:h-96 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-center mb-4">
+                            <img src="Images/Feedback_3.jpg" alt="NOAM Pangou" class="w-16 h-16 rounded-full">
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">NOAM Pangou</h3>
+                        <p class="opacity-80 italic overflow-y-auto md:max-h-48">
+                            "Un projet bien pensé et très utile. J'ai pu accéder à des cours premium gratuitement grâce à Scrapper. Merci !"
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
