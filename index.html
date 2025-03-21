@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapper - Udemy Coupons</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v5/font/simple-icons.min.css">
+</head>
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="bg-[#151515] fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Scrapper</a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="https://www.linkedin.com/in/maxence-villet-schoumaker-developpeur-web-mobile/" class="hover:text-blue-500 transition">Contact</a>
+                <a href="https://github.com/Maxence-villet/Scrapper" class="hover:text-blue-500 transition flex items-center">
+                    <i class="si si-github mr-2"></i>Repository
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#151515] px-6 pb-4">
+            <a href="https://www.linkedin.com/in/maxence-villet-schoumaker-developpeur-web-mobile/" class="block py-2 hover:text-blue-500 transition">Contact</a>
+            <a href="https://github.com/Maxence-villet/Scrapper" class="block py-2 hover:text-blue-500 transition flex items-center">
+                <i class="si si-github mr-2"></i>Repository
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- Header -->
+    <!-- Header -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Vidéo en fond d'écran -->
+        <video 
+            autoplay 
+            muted 
+            loop 
+            class="absolute inset-0 w-full h-full object-cover z-0"
+        >
+            <source src="https://cdn.pixabay.com/video/2016/02/29/2311-157183664_large.mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+
+        <!-- Contenu au-dessus de la vidéo -->
+        <div class="z-10 text-center">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6">SCRAPPER</h1>
+            <p class="text-xl mb-8">Obtenez des cours Udemy premium... gratuitement !</p>
+            <a href="https://www.linkedin.com/in/maxence-villet-schoumaker-developpeur-web-mobile/" class="bg-[#3347e8] px-8 py-3 rounded-full hover:bg-blue-600 transition">
+                Nous contacter
+            </a>
+        </div>
+    </header>
+
+    <!-- Description -->
+    <section class="py-20 bg-[#000000]">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <img src="Images/Logo.png" alt="Project" class="md:w-1/2 mb-8 md:mb-0 rounded-lg">
+            <div class="md:w-1/2 md:pl-16">
+                <h2 class="text-4xl font-bold mb-6">Le Projet</h2>
+                <p class="opacity-80 leading-relaxed">
+                    Scrapper est un outil révolutionnaire qui scanne quotidiennement le web à la recherche de coupons Udemy valides. Grâce à notre algorithme open-source, nous filtrons et vérifions chaque lien avant de le partager avec notre communauté. Plus besoin de perdre des heures à chercher - nous faisons le travail pour vous !
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-20 bg-[#151515]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-16">Proccess</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0">
+                <!-- Étape 1 : Scrap des liens -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="text-center mx-4">
+                        <i class="fa-solid fa-magnifying-glass  text-6xl mb-4"></i>
+                        <p>Scrap des liens</p>
+                    </div>
+                    <!-- Flèche mobile (en dessous) -->
+                    <i class="fas fa-arrow-down text-2xl my-4 md:hidden"></i>
+                    <!-- Flèche desktop (à droite) -->
+                    <i class="fas fa-arrow-right text-2xl mx-8 hidden md:block"></i>
+                </div>
+                
+                <!-- Étape 2 : Filtrage intelligent -->
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="text-center mx-4">
+                        <i class="fa-solid fa-filter text-6xl mb-4"></i>
+                        <p>Filtrage intelligent</p>
+                    </div>
+                    <!-- Flèche mobile (en dessous) -->
+                    <i class="fas fa-arrow-down text-2xl my-4 md:hidden"></i>
+                    <!-- Flèche desktop (à droite) -->
+                    <i class="fas fa-arrow-right text-2xl mx-8 hidden md:block"></i>
+                </div>
+                
+                <!-- Étape 3 : Envoi sur Discord -->
+                <div class="text-center mx-4">
+                    <i class="si si-discord text-6xl mb-4"></i>
+                    <p>Envoi sur Discord</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qui-suis-je -->
+    <section class="py-20 bg-[#000000]">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <img src="Images/Maxence.png" alt="Profile" class="w-64 h-64 rounded-full mb-8 md:mb-0">
+            <div class="md:w-1/2 md:pl-16">
+                <h2 class="text-4xl font-bold mb-6">Qui suis-je ?</h2>
+                <p class="opacity-80 leading-relaxed">
+                    Je m'appelle Maxence VILLET SCHOUMAKER, étudiant en informatique passionné par le web scraping et l'automatisation. Développeur full-stack depuis 3 ans, j'aime créer des outils utiles pour la communauté. Mon objectif est de rendre l'éducation accessible à tous grâce à la technologie.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#151515] py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-8 mb-8">
+                <a href="https://www.linkedin.com/in/maxence-villet-schoumaker-developpeur-web-mobile/" class="hover:text-[#3347e8] transition">
+                    <i class="si si-linkedin text-3xl"></i>
+                </a>
+                <a href="https://github.com/Maxence-villet" class="hover:text-[#3347e8] transition">
+                    <i class="si si-github text-3xl"></i>
+                </a>
+                <a href="mailto:maxence.villetschoumaker@gmail.com" class="hover:text-[#3347e8] transition">
+                    <i class="si si-gmail text-3xl"></i>
+                </a>
+            </div>
+            <p class="opacity-70">© 2025 Scrapper - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu functionality
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
