@@ -1,4 +1,4 @@
-<img src="Images/Logo.png" width="350" height="350" />
+<img src="Images/Logo.png" width="800" height="800" />
 # Scrapper 
 
 [![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://go.dev/) [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/) [![Udemy](https://img.shields.io/badge/Udemy-%23EC5252.svg?style=for-the-badge&logo=udemy&logoColor=white)](https://www.udemy.com/)
